@@ -50,6 +50,7 @@
   var isString = isType("String"); // 判断是否为Undefined类型
 
   var isUndefined = isType("Undefined");
+  var isNumber = isType("Number");
 
   var INVALID_DATE = "Invalid Date";
   var MS_PER_SECOND = 1000;
@@ -117,7 +118,7 @@
       key: "parse",
       value: function parse(date) {
         if (isUndefined(date)) return dateInstance();
-        if (isDate(date)) return dateInstance(date);
+        if (isDate(date) || isNumber(date)) return dateInstance(date);
 
         if (isString(date) && RULE_PARSE.test(date)) {
           var list = date.match(RULE_PARSE);
@@ -151,7 +152,7 @@
           YY: formatHandler(year).slice(-2),
           YYYY: formatHandler(year),
           M: formatHandler(month + 1),
-          MM: formatHandler(month + 1, 1),
+          MM: formatHandler(month + 1, 2),
           D: formatHandler(date),
           DD: formatHandler(date, 2),
           d: week,
@@ -283,8 +284,7 @@
       key: "isSame",
       value: function isSame(date) {
         var u = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : "s";
-        var d = this.parse(date);
-        return this.startOf(u) <= d && d <= this.endOf(u);
+        return this.startOf(u) === Zdate(date).startOf(u);
       }
     }, {
       key: "isBetween",

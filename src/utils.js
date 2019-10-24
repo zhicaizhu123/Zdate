@@ -24,3 +24,5 @@ export const isString = isType("String");
 
 // 判断是否为Undefined类型
 export const isUndefined = isType("Undefined");
+
+export const isNumber = isType("Number");

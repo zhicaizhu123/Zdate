@@ -1,4 +1,4 @@
-import { isDate, isString, isUndefined } from "./utils";
+import { isDate, isString, isUndefined, isNumber } from "./utils";
 import {
   INVALID_DATE,
   RULE_PARSE,
@@ -76,7 +76,7 @@ class ZDate {
 
   parse(date) {
     if (isUndefined(date)) return dateInstance();
-    if (isDate(date)) return dateInstance(date);
+    if (isDate(date) || isNumber(date)) return dateInstance(date);
     if (isString(date) && RULE_PARSE.test(date)) {
       const list = date.match(RULE_PARSE);
       if (list) {
@@ -102,7 +102,7 @@ class ZDate {
       YY: formatHandler(year).slice(-2),
       YYYY: formatHandler(year),
       M: formatHandler(month + 1),
-      MM: formatHandler(month + 1, 1),
+      MM: formatHandler(month + 1, 2),
       D: formatHandler(date),
       DD: formatHandler(date, 2),
       d: week,
@@ -203,8 +203,7 @@ class ZDate {
   }
 
   isSame(date, u = "s") {
-    const d = this.parse(date);
-    return this.startOf(u) <= d && d <= this.endOf(u);
+    return this.startOf(u) === Zdate(date).startOf(u);
   }
 
   isBetween(date1, date2, u = "s") {
