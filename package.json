@@ -1,5 +1,5 @@
 {
-  "name": "zdate",
+  "name": "zdatejs",
   "version": "1.0.0",
   "description": "a plugin of date",
   "main": "dist/zdate.min.js",
