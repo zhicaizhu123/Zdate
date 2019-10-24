@@ -1,14 +1,30 @@
 {
-  "name": "utils",
+  "name": "zdate",
   "version": "1.0.0",
-  "description": "",
+  "description": "a plugin of date",
   "main": "dist/zdate.min.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "cross-env ENV=production rollup -c",
     "dev": "cross-env ENV=development rollup -c -w"
   },
-  "author": "",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/zhicaizhu123/Zdate.git"
+  },
+  "keywords": [
+    "date",
+    "day",
+    "time",
+    "moment",
+    "date-plugin",
+    "日期",
+    "日期插件"
+  ],
+  "author": {
+    "name": "Peter Chu",
+    "email": "zhicaizhu123@126.com"
+  },
   "license": "ISC",
   "devDependencies": {
     "@babel/core": "^7.6.4",
