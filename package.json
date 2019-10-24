@@ -1,12 +1,13 @@
 {
   "name": "zdatejs",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "a plugin of date",
-  "main": "dist/zdate.min.js",
+  "main": "dist/zdate.esm.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "cross-env rollup -c -w",
     "build": "cross-env ENV=production rollup -c",
-    "dev": "cross-env ENV=development rollup -c -w"
+    "build:esm": "cross-env METHOD=esm rollup -c"
   },
   "repository": {
     "type": "git",
