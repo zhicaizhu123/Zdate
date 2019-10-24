@@ -191,7 +191,7 @@ const isAfter = zdate().isAfter("2019-10-25", "month"); // => true
 const isBefore = zdate().isBefore("2019-10-24 11:30:30", "hour"); // => true
 
 const isSame = zdate().isSame("2019-10-24", "month"); // => true
-const isBetween = zdate().isBetween("2019-10-23", "2019-10-25", "month"); => true
+const isBetween = zdate().isBetween("2019-10-23", "2019-10-25", "month"); // => true
 ```
 
 </details>
