@@ -55,12 +55,20 @@ var RULE_PARSE = /^(\d{4})-?(\d{1,2})-?(\d{0,2})[^0-9]*(\d{1,2})?:?(\d{1,2})?:?(
 var RULE_FORMAT = /\[([^\]]+)]|Y{2,4}|M{1,4}|D{1,2}|d{1,4}|H{1,2}|h{1,2}|m{1,2}|s{1,2}|SS{1,2}/g;
 var SET_API_HASH = {
   year: "setFullYear",
+  Y: "setFullYear",
   month: "setMonth",
+  M: "setMonth",
   date: "setDate",
+  day: "setDate",
+  D: "setDate",
   hour: "setHours",
+  H: "setHours",
   minute: "setMinutes",
+  m: "setMinutes",
   second: "setSeconds",
-  millisecond: "setMilliseconds"
+  s: "setSeconds",
+  millisecond: "setMilliseconds",
+  ms: "setMilliseconds"
 };
 var WEEK_HASH = array2Object("日一二三四五六".split(""));
 var UNIT_HASH = {
@@ -109,6 +117,15 @@ function () {
   }
 
   _createClass(ZDate, [{
+    key: "set",
+    value: function set(type, val) {
+      if (["month", "M"].includes(type)) {
+        val = val - 1;
+      }
+
+      this._date[SET_API_HASH[type]](val);
+    }
+  }, {
     key: "parse",
     value: function parse(date) {
       if (isUndefined(date)) return dateInstance();
@@ -312,6 +329,11 @@ function () {
     }
   }, {
     key: "date",
+    get: function get() {
+      return this._date.getDate();
+    }
+  }, {
+    key: "day",
     get: function get() {
       return this._date.getDate();
     }

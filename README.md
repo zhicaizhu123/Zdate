@@ -2,21 +2,21 @@
 
 日期时间处理插件
 
-### 安装
+## 安装
 
-```shell
+```sh
 npm install -S zdatejs
 ```
 
-### 开始使用
+## 开始使用
 
 引入
 
-```javascript
+```js
 import zdate from "zdatejs";
 ```
 
-#### 初始化
+### 初始化
 
 `zdate(params?: Date|string|number)`  
 params 参数可以为 Date 实例，格式化日期字符串，时间戳或者不传表示当前时间
@@ -37,7 +37,7 @@ zdate("2019-10-10 10:10:10");
 
 </details>
 
-#### 获取对应单位时间
+### 获取对应单位时间
 
 - year：年
 - month：月
@@ -47,8 +47,9 @@ zdate("2019-10-10 10:10:10");
 - second：秒
 - millisecond：毫秒
 - week：星期
-  <details>
-  <summary>举例</summary>
+
+<details>
+<summary>举例</summary>
 
 ```js
 const year = zdate().year; // 获取年
@@ -70,7 +71,46 @@ const week = zdate().week; // 获取星期
 
 </details>
 
-#### 格式化时间
+### 获取对应单位时间
+
+<details>
+<summary>举例</summary>
+
+```js
+zdate().set("year", 2019); // 设置为2019年
+// 或
+zdate().set("Y", 2019);
+
+zdate().set("month", 10); // 设置为10月份
+// 或
+zdate().set("M", 10);
+
+zdate().set("day", 3); // 设置为3日
+// 或
+zdate().set("date", 3);
+// 或
+zdate().set("D", 3);
+
+zdate().set("hour", 13); // 设置为13小时
+// 或
+zdate().set("H", 13);
+
+zdate().set("minute", 23); // 设置为23分钟
+// 或
+zdate().set("m", 23);
+
+zdate().set("second", 59); // 设置为59秒
+// 或
+zdate().set("s", 59);
+
+zdate().set("millisecond", 45); // 设置为45毫秒
+// 或
+zdate().set("ms", 45);
+```
+
+</details>
+
+### 格式化时间
 
 `format(str?: string)`  
 str 为结合以下字符格式拼接而成的字符串：
@@ -107,7 +147,7 @@ const d2 = zdate().format("YYYY年MM月DD日 HH时mm分ss秒"); // 2019年10月2
 
 </details>
 
-#### 获取指定类型的首末时间
+### 获取指定类型的首末时间
 
 `startOf(unit: string)`  
 `endOf(unit: string)`  
@@ -142,7 +182,7 @@ const endOfHour = zdate()
 
 </details>
 
-#### 设置偏移时间
+### 设置偏移时间
 
 - 右偏差：`add(offset: number, unit?:string = 'second')`
 - 左偏差： `subtract(offset: number, unit?:string = 'second')`  
@@ -174,7 +214,7 @@ const subtractHour = zdate()
 
 </details>
 
-#### 比较时间
+### 比较时间
 
 - 时间是否在 date 之前：`isBefore(date, unit?:string="second")`
 - 时间是否在 date 之后：`isAfter(date, unit?:string="second")`
@@ -196,7 +236,7 @@ const isBetween = zdate().isBetween("2019-10-23", "2019-10-25", "month"); // => 
 
 </details>
 
-#### 转化为时间戳
+### 转化为时间戳
 
 `valueOf()`
 

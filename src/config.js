@@ -18,21 +18,37 @@ export const RULE_FORMAT = /\[([^\]]+)]|Y{2,4}|M{1,4}|D{1,2}|d{1,4}|H{1,2}|h{1,2
 
 export const SET_API_HASH = {
   year: "setFullYear",
+  Y: "setFullYear",
   month: "setMonth",
+  M: "setMonth",
   date: "setDate",
+  day: "setDate",
+  D: "setDate",
   hour: "setHours",
+  H: "setHours",
   minute: "setMinutes",
+  m: "setMinutes",
   second: "setSeconds",
-  millisecond: "setMilliseconds"
+  s: "setSeconds",
+  millisecond: "setMilliseconds",
+  ms: "setMilliseconds"
 };
 export const GET_API_HASH = {
   year: "getFullYear",
+  Y: "getFullYear",
   month: "getMonth",
+  M: "getMonth",
   date: "getDate",
+  day: "getDate",
+  D: "getDate",
   hour: "getHours",
+  H: "getHours",
   minute: "getMinutes",
+  m: "getMinutes",
   second: "getSeconds",
-  millisecond: "getMilliseconds"
+  s: "getSeconds",
+  millisecond: "getMilliseconds",
+  ms: "getMilliseconds"
 };
 
 export const WEEK_HASH = array2Object("日一二三四五六".split(""));

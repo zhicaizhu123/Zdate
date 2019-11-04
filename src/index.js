@@ -54,6 +54,10 @@ class ZDate {
     return this._date.getDate();
   }
 
+  get day() {
+    return this._date.getDate();
+  }
+
   get hour() {
     return this._date.getHours();
   }
@@ -72,6 +76,13 @@ class ZDate {
 
   get week() {
     return this._date.getDay();
+  }
+
+  set(type, val) {
+    if (["month", "M"].includes(type)) {
+      val = val - 1;
+    }
+    this._date[SET_API_HASH[type]](val);
   }
 
   parse(date) {
