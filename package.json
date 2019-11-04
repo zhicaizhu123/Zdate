@@ -1,6 +1,6 @@
 {
   "name": "zdatejs",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "description": "a plugin of date",
   "main": "dist/zdate.esm.js",
   "scripts": {
