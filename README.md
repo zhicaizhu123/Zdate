@@ -71,7 +71,7 @@ const week = zdate().week; // 获取星期
 
 </details>
 
-### 获取对应单位时间
+### 设置对应单位时间
 
 <details>
 <summary>举例</summary>
